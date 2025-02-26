@@ -2,11 +2,8 @@
 
 declare(strict_types=1);
 
-namespace NunoMaduro\SkeletonPhp;
+namespace HugPHP\Http;
 
-/**
- * @internal
- */
 final class Example
 {
     public function foo(): string

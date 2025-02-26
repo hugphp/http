@@ -1,9 +1,9 @@
 <?php
 
-use NunoMaduro\SkeletonPhp\Example;
+use HugPHP\Http\Example;
 
 it('foo', function (): void {
-    $example = new Example;
+    $example = new Example();
 
     $result = $example->foo();
 
