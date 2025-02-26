@@ -9,8 +9,8 @@ class Response
      * @param  string  $body  Raw response body
      */
     public function __construct(
-        private int $status,
-        private string $body
+        private readonly int $status,
+        private readonly string $body
     ) {}
 
     /**

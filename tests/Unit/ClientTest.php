@@ -2,7 +2,7 @@
 
 use HugPHP\Http\Client;
 
-it('can make a GET request', function () {
+it('can make a GET request', function (): void {
     $client = new Client;
     $response = $client->to('https://jsonplaceholder.typicode.com/todos/1')
         ->withOutSSLCertificate()
@@ -12,7 +12,7 @@ it('can make a GET request', function () {
     expect($response->json())->toHaveKey('title');
 });
 
-it('can make a POST request with JSON', function () {
+it('can make a POST request with JSON', function (): void {
     $client = new Client;
     $response = $client->to('https://jsonplaceholder.typicode.com/posts')
         ->sendJson(['title' => 'HugPHP'])

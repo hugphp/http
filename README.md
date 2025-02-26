@@ -84,4 +84,4 @@ composer test:unit
 composer test
 ```
 
-**Skeleton PHP** was created by **[Nuno Maduro](https://twitter.com/enunomaduro)** under the **[MIT license](https://opensource.org/licenses/MIT)**.
+**HugPHP HTTP** was created by **[Micheal Ataklt](https://www.linkedin.com/in/matakltm-code)** under the **[MIT license](https://opensource.org/licenses/MIT)**.

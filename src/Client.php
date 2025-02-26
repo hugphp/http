@@ -119,15 +119,15 @@ class Client
             curl_setopt($ch, CURLOPT_POST, true);
         }
 
-        if (! empty($this->headers)) {
+        if ($this->headers !== []) {
             curl_setopt($ch, CURLOPT_HTTPHEADER, array_map(
-                fn ($k, $v) => "$k: $v",
+                fn ($k, $v): string => "$k: $v",
                 array_keys($this->headers),
                 $this->headers
             ));
         }
 
-        if (! empty($this->body) && $this->method === 'POST') {
+        if ($this->body !== [] && $this->method === 'POST') {
             curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($this->body));
         }
 
