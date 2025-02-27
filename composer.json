@@ -15,7 +15,9 @@
         }
     ],
     "require": {
-        "php": "^8.3.0"
+        "php": "^8.3.0",
+        "ext-curl": "*",
+        "justinrainbow/json-schema": "^6.2"
     },
     "require-dev": {
         "laravel/pint": "^1.18.1",

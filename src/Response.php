@@ -41,6 +41,7 @@ class Response
     public function json(): array
     {
         $decoded = json_decode($this->body, true);
+
         return is_array($decoded) ? $decoded : [];
     }
 }
