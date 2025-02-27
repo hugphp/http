@@ -6,8 +6,10 @@ class Client
 {
     private string $url = '';
 
+    /** @var array<string, string> */
     private array $headers = [];
 
+    /** @var array<string, mixed> */
     private array $body = [];
 
     private string $method = 'GET';
@@ -44,7 +46,7 @@ class Client
     /**
      * Sets the request body as JSON data.
      *
-     * @param  array  $data  Associative array to encode as JSON
+     * @param  array<string, mixed>  $data  Associative array to encode as JSON
      * @return self Fluent interface for method chaining
      */
     public function sendJson(array $data): self
@@ -140,6 +142,6 @@ class Client
             throw new \RuntimeException("cURL request failed: $error");
         }
 
-        return new Response($status, $response);
+        return new Response($status, (string) $response);
     }
 }

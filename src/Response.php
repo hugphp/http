@@ -36,10 +36,11 @@ class Response
     /**
      * Decodes the response body as JSON.
      *
-     * @return array Associative array of JSON data, or empty array if invalid
+     * @return array<string, mixed> Associative array of JSON data, or empty array if invalid
      */
     public function json(): array
     {
-        return json_decode($this->body, true) ?: [];
+        $decoded = json_decode($this->body, true);
+        return is_array($decoded) ? $decoded : [];
     }
 }
