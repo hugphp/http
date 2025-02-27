@@ -30,7 +30,7 @@ composer require hugphp/http
 - Optional SSL verification toggle for flexibility.
 - Lightweight and dependency-free (uses native cURL).
 
-## Usage
+## 1. Example Usage
 
 ```php
 use HugPHP\Http\Client;
@@ -56,6 +56,41 @@ $data = $client->to('https://api.example.com/users/1')
                ->json();
 echo $data['name'];
 ```
+
+## 2. Example Usage
+
+```php
+use HugPHP\Http\Client;
+
+$client = new Client();
+
+// GET with rate limiting
+$client->to('https://api.example.com/data')
+       ->withRateLimit(5, 'minute')
+       ->get();
+
+// POST with JSON and debugging
+$client->to('https://api.example.com/post')
+       ->withHeader('Authorization', 'Bearer token')
+       ->sendJson(['name' => 'HugPHP'])
+       ->debug()
+       ->post();
+
+// Validate and transform response
+class User {
+    public int $id;
+    public string $name;
+}
+$user = $client->to('https://api.example.com/user')
+               ->withOutSSLCertificate()
+               ->validateSchema('user-schema.json', User::class);
+echo $user->name;
+
+// Mock for testing
+$client->mock('https://example.com', ['status' => 200, 'body' => '{"fake": true}']);
+$data = $client->to('https://example.com')->get()->json();
+```
+
 
 ## Development
 

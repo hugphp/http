@@ -52,7 +52,6 @@
         "lint": "pint",
         "test:refacto": "rector --dry-run",
         "test:lint": "pint --test",
-        "test:typos": "peck",
         "test:types": "phpstan analyse --ansi",
         "test:unit": "pest --colors=always --coverage --parallel --min=100",
         "test": [
